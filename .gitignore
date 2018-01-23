@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings
+classes
+*.class
+/build
+*target
+*test-output
+*.iml
+.idea/

@@ -1,0 +1,9 @@
+id.generator:
+       - 
+         type: db
+         username: develop
+         driverClass: com.mysql.jdbc.Driver
+         password: Aa123456
+         url: jdbc:mysql://localhost:3308/test
+       -
+         type: local
