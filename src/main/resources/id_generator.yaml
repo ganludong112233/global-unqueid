@@ -5,5 +5,10 @@ id.generator:
          driverClass: com.mysql.jdbc.Driver
          password: Aa123456
          url: jdbc:mysql://localhost:3308/test
-       -
+       - 
          type: local
+
+#how many seconds to stop while there is not dead id generator need to check
+#it's also meaning that max seconds need to be take to restart the id generator while its failover
+#default:5
+failover.recoverystopsecond: 2

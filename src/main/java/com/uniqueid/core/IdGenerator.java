@@ -1,10 +1,10 @@
 package com.uniqueid.core;
 
-public interface IdGenerator extends Shutdown {
+public interface IdGenerator extends LifeCycle {
     /**
      * 
      * @param snName
      * @return
      */
-    public long getId(String snName);
+    public Object getId(String snName) throws NoIdReturnException;
 }

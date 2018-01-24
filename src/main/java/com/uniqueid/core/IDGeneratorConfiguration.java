@@ -12,16 +12,27 @@ public class IDGeneratorConfiguration {
     private String GENERTOR_TYPE_DB = "db";
     private String GENERTOR_TYPE_REDIS = "redis";
     private String GENERTOR_TYPE_LOCAL = "local";
+    java.util.LinkedHashMap<String, Object> props;
 
-    public DistributedIdGenerator buildDitributedIdGenerator() {
+    public IDGeneratorConfiguration() {
+        initProps();
+    }
+
+    @SuppressWarnings({"unchecked"})
+    public void initProps() {
         Yaml yaml = new Yaml();
-        @SuppressWarnings("unchecked")
-        java.util.LinkedHashMap<String, List<Map<String, String>>> objects =
-                (LinkedHashMap<String, List<Map<String, String>>>) yaml
-                        .load(IDGeneratorConfiguration.class.getResourceAsStream(YAML_CLASSPATH));
+        props =
+                (LinkedHashMap<String, Object>) yaml.load(IDGeneratorConfiguration.class
+                        .getResourceAsStream(YAML_CLASSPATH));
+    }
 
-        List<Map<String, String>> configs = objects.get("id.generator");
+    @SuppressWarnings("unchecked")
+    public DistributedIdGenerator buildDitributedIdGenerator() {
 
+        List<Map<String, String>> configs = (List<Map<String, String>>) props.get("id.generator");
+        if (configs == null || configs.isEmpty()) {
+            throw new RuntimeException("at least one generator must be configured");
+        }
         List<IdGenerator> children = new ArrayList<IdGenerator>();
         for (Map<String, String> config : configs) {
             IdGenerator idGenerator = null;
@@ -36,7 +47,12 @@ public class IDGeneratorConfiguration {
             children.add(idGenerator);
         }
 
-        DistributedIdGenerator distributedIdGenerator = new DistributedIdGenerator(children);
+        Integer recoveryStopSecondsStr = (Integer) props.get("failover.recoverystopsecond");
+        if (recoveryStopSecondsStr == null) {
+            recoveryStopSecondsStr = 5;
+        }
+        DistributedIdGenerator distributedIdGenerator =
+                new DistributedIdGenerator(children, recoveryStopSecondsStr);
         return distributedIdGenerator;
     }
 

@@ -1,6 +1,6 @@
 package com.uniqueid.core;
 
-public class IdGeneratorService implements IdGenerator {
+public class IdGeneratorService {
     private DistributedIdGenerator distributedGenerator;
     private static IdGeneratorService instance;
     static {
@@ -14,9 +14,10 @@ public class IdGeneratorService implements IdGenerator {
     private IdGeneratorService() {
         IDGeneratorConfiguration config = new IDGeneratorConfiguration();
         distributedGenerator = config.buildDitributedIdGenerator();
+        distributedGenerator.start();
     }
 
-    public long getId(String snName) {
+    public Object getId(String snName) throws NoIdReturnException {
         return distributedGenerator.getId(snName);
     }
 

@@ -6,8 +6,16 @@ public class RedisIdGenerator implements IdGenerator {
 
     }
 
-    public long getId(String snName) {
+    public Object getId(String snName) {
         return 0;
+    }
+
+    public void start() {
+
+    }
+
+    public boolean isAlived() {
+        return false;
     }
 
 }
