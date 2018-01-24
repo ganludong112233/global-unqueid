@@ -1,0 +1,92 @@
+format 216
+
+classcanvas 128055 class_ref 128055 // IdGenerator
+  classdiagramsettings show_members_full_definition yes member_max_width 0 end
+  xyz 270.92 178.21 2000
+end
+classcanvas 128183 class_ref 128183 // DistributedIdGenerator
+  classdiagramsettings member_max_width 0 end
+  xyz 286.24 295.972 2000
+end
+classcanvas 128439 class_ref 128311 // SingleDBIdGenertor
+  classdiagramsettings member_max_width 0 end
+  xyz 109.581 204.381 2000
+end
+classcanvas 128695 class_ref 128439 // IdGeneratorService
+  classdiagramsettings show_members_full_definition yes member_max_width 0 end
+  xyz 249.993 355.589 2000
+end
+classcanvas 129207 class_ref 128567 // SingleRedisIdRegerator
+  classdiagramsettings member_max_width 0 end
+  xyz 86.2444 255.067 2006
+end
+classcanvas 129847 class_ref 128695 // IdGeneratorConfiguration
+  classdiagramsettings member_max_width 0 end
+  xyz 53.832 324.199 2000
+end
+classcanvas 130231 class_ref 128823 // LocalIdGenerator
+  classdiagramsettings member_max_width 0 end
+  xyz 121.394 140.853 2005
+end
+classcanvas 130487 class_ref 128951 // LifeCycle
+  classdiagramsettings member_max_width 0 end
+  xyz 326.506 54.009 2011
+end
+classcanvas 133303 class_ref 135479 // Pipeline
+  classdiagramsettings show_members_full_definition yes member_max_width 0 end
+  xyz 560.234 148.729 2000
+end
+relationcanvas 131255 relation_ref 129719 // <realization>
+  from ref 128055 z 2012 to ref 130487
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131639 relation_ref 130103 // <realization>
+  from ref 129207 z 2007 to ref 128055
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131895 relation_ref 130231 // <realization>
+  from ref 130231 z 2006 to ref 128055
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132023 relation_ref 130359 // <realization>
+  from ref 128439 z 2001 to ref 128055
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132407 relation_ref 130615 // <unidirectional association>
+  from ref 128695 z 2001 to ref 128183
+  role_a_pos 364 336 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133175 relation_ref 130871 // <realization>
+  decenter_begin 479
+  decenter_end 478
+  from ref 128183 z 2001 to ref 128055
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133431 relation_ref 137399 // <unidirectional association>
+  from ref 128183 z 2001 to point 687.673 306.171
+  line 133559 z 2001 to ref 133303
+  role_a_pos 698 261 3000 no_role_b
+  multiplicity_a_pos 675 261 3000 no_multiplicity_b
+end
+relationcanvas 133687 relation_ref 137527 // <dependency>
+  from ref 128695 z 2001 to ref 129847
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134583 relation_ref 144695 // <composition>
+  from ref 133303 z 2001 stereotype "<<list>>" xyz 481.5 206.5 3000 to ref 128055
+  role_a_pos 454 190 3000 no_role_b
+  multiplicity_a_pos 454 212 3000 no_multiplicity_b
+end
+relationcanvas 135095 relation_ref 151223 // <dependency>
+  from ref 129847 z 2001 to ref 128183
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

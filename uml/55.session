@@ -1,0 +1,13 @@
+window_sizes 1402 855 362 1034 739 64
+cleanlooks_style
+diagrams
+  active  classdiagram_ref 128055 // keygenerator
+    1104 739 120 A4 0 0
+end
+show_stereotypes
+selected 
+  package_ref 129 // uml
+open
+end
+end
+verbose
