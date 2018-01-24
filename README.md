@@ -35,3 +35,5 @@ id.generator:
          type: local
 ~~~
 
+## init database script if you are will to use the db type.
+download the script: (https://github.com/ganludong112233/global-unqueid/blob/master/src/main/resources/gloal_id.sql)
