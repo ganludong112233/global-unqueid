@@ -1,5 +1,5 @@
 # Distributed Global Id generator
-##The desgin class diagram
+## The desgin class diagram
 
 ![Desgin UML Class Diagram](https://raw.githubusercontent.com/ganludong112233/global-unqueid/master/uml/uml.png)
 
